@@ -9,7 +9,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class CreateJokesController {
 
-    CreateJokeService jokeService = new CreateJokesServiceImpl();
+    private final CreateJokeService jokeService;
+
+    public CreateJokesController(CreateJokeService createJokeService){
+        this.jokeService =  createJokeService;
+    }
 
     @RequestMapping("/")
     public String getJokes(Model model){
